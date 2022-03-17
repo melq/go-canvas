@@ -9,7 +9,7 @@ import (
     "image"
     "image/color"
 	
-	"github.com/melq/go-canvas"
+    "github.com/melq/go-canvas"
 )
 
 func main() {
