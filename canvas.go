@@ -48,3 +48,48 @@ func (c *Canvas) ToPng(filename string) {
 		log.Fatal(err)
 	}
 }
+
+func absInt(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func (c *Canvas) Line(s image.Point, e image.Point) {
+	dx := absInt(e.X - s.X)
+	dy := absInt(e.Y - s.Y)
+
+	var sx int
+	var sy int
+
+	if s.X < e.X {
+		sx = 1
+	} else {
+		sx = -1
+	}
+	if s.Y < e.Y {
+		sy = 1
+	} else {
+		sy = -1
+	}
+	err := dx - dy
+
+	x0 := s.X
+	y0 := s.Y
+	for {
+		c.Data[y0*c.W+x0] = color.Black
+		if x0 == e.X && y0 == e.Y {
+			break
+		}
+		e2 := 2 * err
+		if e2 > -dy {
+			err = err - dy
+			x0 = x0 + sx
+		}
+		if e2 < dx {
+			err = err + dx
+			y0 = y0 + sy
+		}
+	}
+}
