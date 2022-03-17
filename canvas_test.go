@@ -12,10 +12,10 @@ func TestNewCanvas(t *testing.T) {
 }
 
 func TestToPng(t *testing.T) {
-	c := NewCanvas(1000, 1000)
+	c := NewCanvas(800, 400)
 	for i := range c.Data {
-		c.Data[i] = color.RGBA{R: 150, G: 100, B: 100, A: 255}
+		c.Data[i] = color.RGBA{R: 200, G: 200, B: 200, A: 255}
 	}
-	c.Line(image.Point{X: 200, Y: 400}, image.Point{X: 800, Y: 600})
-	c.ToPng("./img/test.png")
+	c.Line(image.Point{X: 100, Y: 100}, image.Point{X: 700, Y: 300})
+	c.ToPng("./img/sample.png")
 }
