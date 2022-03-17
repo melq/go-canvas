@@ -38,9 +38,9 @@ func (c *Canvas) ToPng(filename string) {
 		log.Fatal(err)
 	}
 	defer func(f *os.File) {
-		err := f.Close()
+		err = f.Close()
 		if err != nil {
-
+			log.Fatal(err)
 		}
 	}(f)
 	err = png.Encode(f, c.toImage())
