@@ -3,6 +3,9 @@ package canvas
 import (
 	"image"
 	"image/color"
+	"image/png"
+	"log"
+	"os"
 )
 
 type Canvas struct {
@@ -30,5 +33,18 @@ func (c *Canvas) toImage() image.Image {
 }
 
 func (c *Canvas) ToPng(filename string) {
+	f, err := os.Create(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func(f *os.File) {
+		err := f.Close()
+		if err != nil {
 
+		}
+	}(f)
+	err = png.Encode(f, c.toImage())
+	if err != nil {
+		log.Fatal(err)
+	}
 }
