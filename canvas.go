@@ -62,7 +62,6 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 
 	var sx int
 	var sy int
-
 	if s.X < e.X {
 		sx = 1
 	} else {
@@ -73,15 +72,12 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 	} else {
 		sy = -1
 	}
-	err := dx - dy
 
+	err := dx - dy
 	x0 := s.X
 	y0 := s.Y
-	for {
+	for x0 != e.X && y0 != e.Y {
 		c.Data[y0*c.W+x0] = color.Black
-		if x0 == e.X && y0 == e.Y {
-			break
-		}
 		e2 := 2 * err
 		if e2 > -dy {
 			err = err - dy
