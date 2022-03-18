@@ -19,6 +19,6 @@ func TestToPng(t *testing.T) {
 	p1 := image.Point{X: 100, Y: 100}
 	p2 := image.Point{X: 700, Y: 300}
 	c.Line(p1, p2)
-	//c.Rect(p1, p2)
+	c.Rect(p1, p2)
 	c.ToPng("./img/sample.png")
 }
