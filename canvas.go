@@ -76,7 +76,7 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 	err := dx - dy
 	x0 := s.X
 	y0 := s.Y
-	for x0 != e.X && y0 != e.Y {
+	for x0 != e.X || y0 != e.Y {
 		c.Data[y0*c.W+x0] = color.Black
 		e2 := 2 * err
 		if e2 > -dy {
@@ -89,3 +89,11 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 		}
 	}
 }
+
+/*func (c *Canvas) Rect(p1 image.Point, p2 image.Point) {
+	c.Line(p1, image.Point{X: p2.X, Y: p1.Y})
+	c.Line(image.Point{X: p2.X, Y: p1.Y}, p2)
+	c.Line(p2, image.Point{X: p1.X, Y: p2.Y})
+	c.Line(image.Point{X: p1.X, Y: p2.Y}, p1)
+}
+*/
