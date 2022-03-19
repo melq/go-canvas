@@ -24,6 +24,10 @@ func NewCanvas(w int, h int) *Canvas {
 	}
 }
 
+func (c *Canvas) ChangeColor(color color.Color) {
+	c.Color = color
+}
+
 func (c *Canvas) toImage() image.Image {
 	img := image.NewRGBA(image.Rect(0, 0, c.W, c.H))
 	for y := 0; y < c.H; y++ {
