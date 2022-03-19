@@ -21,12 +21,14 @@ type Canvas struct {
 }
 
 func NewCanvas(w int, h int) *Canvas {
-	return &Canvas{
+	c := Canvas{
 		W:     w,
 		H:     h,
 		Data:  make([]Px, w*h),
 		Color: color.Black,
 	}
+	c.SetBackground(color.White)
+	return &c
 }
 
 func (c *Canvas) toImage() image.Image {
