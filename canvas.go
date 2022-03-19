@@ -9,9 +9,10 @@ import (
 )
 
 type Canvas struct {
-	W    int
-	H    int
-	Data []color.Color
+	W     int
+	H     int
+	Data  []color.Color
+	Color color.Color
 }
 
 func NewCanvas(w int, h int) *Canvas {
