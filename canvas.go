@@ -79,7 +79,7 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 	x0 := s.X
 	y0 := s.Y
 	for x0 != e.X || y0 != e.Y {
-		c.Data[y0*c.W+x0] = color.Black
+		c.Data[y0*c.W+x0] = c.Color
 		e2 := 2 * err
 		if e2 > -dy {
 			err = err - dy
