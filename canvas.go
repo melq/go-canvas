@@ -96,3 +96,9 @@ func (c *Canvas) Rect(p1 image.Point, p2 image.Point) {
 	c.Line(p2, image.Point{X: p1.X, Y: p2.Y})
 	c.Line(image.Point{X: p1.X, Y: p2.Y}, p1)
 }
+
+func (c *Canvas) Triangle(p1 image.Point, p2 image.Point, p3 image.Point) {
+	c.Line(p1, p2)
+	c.Line(p2, p3)
+	c.Line(p3, p1)
+}
