@@ -29,10 +29,6 @@ func NewCanvas(w int, h int) *Canvas {
 	}
 }
 
-func (c *Canvas) ChangeColor(color color.Color) {
-	c.Color = color
-}
-
 func (c *Canvas) toImage() image.Image {
 	img := image.NewRGBA(image.Rect(0, 0, c.W, c.H))
 	for y := 0; y < c.H; y++ {
@@ -58,6 +54,17 @@ func (c *Canvas) ToPng(filename string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func (c *Canvas) SetBackground(color color.Color) {
+	for i := range c.Data {
+		c.Data[i].color = color
+		c.Data[i].obj = true
+	}
+}
+
+func (c *Canvas) ChangeColor(color color.Color) {
+	c.Color = color
 }
 
 func absInt(x int) int {
