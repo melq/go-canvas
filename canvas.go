@@ -17,9 +17,10 @@ type Canvas struct {
 
 func NewCanvas(w int, h int) *Canvas {
 	return &Canvas{
-		W:    w,
-		H:    h,
-		Data: make([]color.Color, w*h),
+		W:     w,
+		H:     h,
+		Data:  make([]color.Color, w*h),
+		Color: color.Black,
 	}
 }
 
