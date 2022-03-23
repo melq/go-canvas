@@ -131,10 +131,11 @@ func (c *Canvas) Shape(points ...image.Point) error {
 	}
 	var s image.Point
 	var e image.Point
-	for i := 1; i < len(points)-1; i++ {
+	for i := 1; i < len(points); i++ {
 		s = points[i-1]
 		e = points[i]
 		c.Line(s, e)
 	}
+	c.Line(e, points[0])
 	return nil
 }
