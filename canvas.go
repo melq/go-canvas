@@ -1,6 +1,7 @@
 package canvas
 
 import (
+	"errors"
 	"image"
 	"image/color"
 	"image/png"
@@ -122,4 +123,18 @@ func (c *Canvas) Triangle(p1 image.Point, p2 image.Point, p3 image.Point) {
 	c.Line(p1, p2)
 	c.Line(p2, p3)
 	c.Line(p3, p1)
+}
+
+func (c *Canvas) Shape(points ...image.Point) error {
+	if len(points) < 2 {
+		return errors.New("not enough points")
+	}
+	var s image.Point
+	var e image.Point
+	for i := 1; i < len(points)-1; i++ {
+		s = points[i-1]
+		e = points[i]
+		c.Line(s, e)
+	}
+	return nil
 }
