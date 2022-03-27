@@ -82,7 +82,7 @@ func absInt(x int) int {
 	return x
 }
 
-func (c *Canvas) Line(s image.Point, e image.Point) {
+func (c *Canvas) Line(s Point, e Point) {
 	dx := absInt(e.X - s.X)
 	dy := absInt(e.Y - s.Y)
 
@@ -117,25 +117,25 @@ func (c *Canvas) Line(s image.Point, e image.Point) {
 	}
 }
 
-func (c *Canvas) Rect(p1 image.Point, p2 image.Point) {
-	c.Line(p1, image.Point{X: p2.X, Y: p1.Y})
-	c.Line(image.Point{X: p2.X, Y: p1.Y}, p2)
-	c.Line(p2, image.Point{X: p1.X, Y: p2.Y})
-	c.Line(image.Point{X: p1.X, Y: p2.Y}, p1)
+func (c *Canvas) Rect(p1 Point, p2 Point) {
+	c.Line(p1, Point{X: p2.X, Y: p1.Y})
+	c.Line(Point{X: p2.X, Y: p1.Y}, p2)
+	c.Line(p2, Point{X: p1.X, Y: p2.Y})
+	c.Line(Point{X: p1.X, Y: p2.Y}, p1)
 }
 
-func (c *Canvas) Triangle(p1 image.Point, p2 image.Point, p3 image.Point) {
+func (c *Canvas) Triangle(p1 Point, p2 Point, p3 Point) {
 	c.Line(p1, p2)
 	c.Line(p2, p3)
 	c.Line(p3, p1)
 }
 
-func (c *Canvas) Shape(points ...image.Point) error {
+func (c *Canvas) Shape(points ...Point) error {
 	if len(points) < 2 {
 		return errors.New("not enough points")
 	}
-	var s image.Point
-	var e image.Point
+	var s Point
+	var e Point
 	for i := 1; i < len(points); i++ {
 		s = points[i-1]
 		e = points[i]
