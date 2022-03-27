@@ -21,6 +21,11 @@ type Canvas struct {
 	Color color.Color
 }
 
+type Point struct {
+	X int
+	Y int
+}
+
 func NewCanvas(w int, h int) *Canvas {
 	c := Canvas{
 		W:     w,
