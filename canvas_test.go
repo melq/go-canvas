@@ -32,7 +32,7 @@ func TestToPng(t *testing.T) {
 	p11 := Point{X: 400, Y: 300}
 	p12 := Point{X: 333, Y: 234}
 	p13 := Point{X: 333, Y: 167}
-	c.ChangeColor(color.RGBA{R: 150, G: 200, B: 150, A: 255})
+	c.ChangeColor(color.RGBA{R: 125, G: 175, B: 125, A: 255})
 	c.Shape(p8, p9, p10, p11, p12, p13)
 	c.ToPng("./img/sample.png")
 }
