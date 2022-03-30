@@ -17,6 +17,7 @@ type Px struct {
 type Canvas struct {
 	W     int
 	H     int
+	Scale int
 	Data  []Px
 	Color color.Color
 }
@@ -30,6 +31,7 @@ func NewCanvas(w int, h int) *Canvas {
 	c := Canvas{
 		W:     w,
 		H:     h,
+		Scale: 1,
 		Data:  make([]Px, w*h),
 		Color: color.Black,
 	}
@@ -38,10 +40,10 @@ func NewCanvas(w int, h int) *Canvas {
 }
 
 func (c *Canvas) toImage() image.Image {
-	img := image.NewRGBA(image.Rect(0, 0, c.W, c.H))
+	img := image.NewRGBA(image.Rect(0, 0, c.W*c.Scale, c.H*c.Scale))
 	for y := 0; y < c.H; y++ {
 		for x := 0; x < c.W; x++ {
-			img.Set(x, y, c.Data[y*c.W+x].color)
+			img.Set(x, y, c.Data[y/c.Scale*c.W+x/c.Scale].color)
 		}
 	}
 	return img
