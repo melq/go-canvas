@@ -66,6 +66,10 @@ func (c *Canvas) ToPng(filename string) {
 	}
 }
 
+func (c *Canvas) SetScale(scale int) {
+	c.Scale = scale
+}
+
 func (c *Canvas) SetBackground(color color.Color) {
 	for i := range c.Data {
 		c.Data[i].color = color
