@@ -41,8 +41,8 @@ func NewCanvas(w int, h int) *Canvas {
 
 func (c *Canvas) toImage() image.Image {
 	img := image.NewRGBA(image.Rect(0, 0, c.W*c.Scale, c.H*c.Scale))
-	for y := 0; y < c.H; y++ {
-		for x := 0; x < c.W; x++ {
+	for y := 0; y < c.H*c.Scale; y++ {
+		for x := 0; x < c.W*c.Scale; x++ {
 			img.Set(x, y, c.Data[y/c.Scale*c.W+x/c.Scale].color)
 		}
 	}

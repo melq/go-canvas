@@ -37,6 +37,7 @@ func main() {
 	p13 := canvas.Point{X: 333, Y: 167}
 	c.ChangeColor(color.RGBA{R: 125, G: 175, B: 125, A: 255})
 	c.Shape(p8, p9, p10, p11, p12, p13)
+	c.SetScale(2)
 	c.ToPng("./img/sample.png")
 }
 ```
