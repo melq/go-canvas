@@ -88,8 +88,13 @@ func absInt(x int) int {
 	return x
 }
 
-func (c *Canvas) setPx(i int, color color.Color) {
-	c.Data[i].color = color
+func (c *Canvas) setPx(i int, clr color.Color) {
+	r1, g1, b1, a1 := clr.RGBA()
+	r2, g2, b2, _ := c.Data[i].color.RGBA()
+	r := r1*a1/255 + r2*(255-a1)/255
+	g := g1*a1/255 + g2*(255-a1)/255
+	b := b1*a1/255 + b2*(255-a1)/255
+	c.Data[i].color = color.RGBA{R: uint8(r), G: uint8(g), B: uint8(b), A: 255}
 	c.Data[i].obj = true
 }
 

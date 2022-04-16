@@ -24,7 +24,7 @@ func TestToPng(t *testing.T) {
 	p5 := Point{X: 400, Y: 50}
 	p6 := Point{X: 600, Y: 350}
 	p7 := Point{X: 200, Y: 350}
-	c.ChangeColor(color.RGBA{R: 150, G: 150, B: 200, A: 255})
+	c.ChangeColor(color.RGBA{R: 150, G: 150, B: 200, A: 130})
 	c.Triangle(p5, p6, p7)
 	p8 := Point{X: 400, Y: 100}
 	p9 := Point{X: 467, Y: 167}
