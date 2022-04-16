@@ -88,6 +88,11 @@ func absInt(x int) int {
 	return x
 }
 
+func (c *Canvas) setPx(i int, color color.Color) {
+	c.Data[i].color = color
+	c.Data[i].obj = true
+}
+
 func (c *Canvas) Line(s Point, e Point) {
 	dx := absInt(e.X - s.X)
 	dy := absInt(e.Y - s.Y)
