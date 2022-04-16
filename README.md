@@ -7,7 +7,6 @@
 package main
 
 import (
-    "image"
     "image/color"
 	
     "github.com/melq/go-canvas"
@@ -27,7 +26,7 @@ func main() {
 	p5 := canvas.Point{X: 400, Y: 50}
 	p6 := canvas.Point{X: 600, Y: 350}
 	p7 := canvas.Point{X: 200, Y: 350}
-	c.ChangeColor(color.RGBA{R: 150, G: 150, B: 200, A: 255})
+	c.ChangeColor(color.RGBA{R: 150, G: 150, B: 200, A: 130})
 	c.Triangle(p5, p6, p7)
 	p8 := canvas.Point{X: 400, Y: 100}
 	p9 := canvas.Point{X: 467, Y: 167}
